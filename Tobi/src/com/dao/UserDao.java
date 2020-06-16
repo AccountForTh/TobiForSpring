@@ -8,7 +8,10 @@ import java.sql.SQLException;
 import com.vo.UserVO;
 
 public class UserDao {
-	DBConnection db = new DBConnection();
+	private ConnectionMaker db = null;
+	public UserDao(ConnectionMaker connectionMaker){
+		this.db = connectionMaker;
+	}
 	Connection conn = null;
 	PreparedStatement ps = null;
 	ResultSet rs = null;
